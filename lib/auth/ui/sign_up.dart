@@ -1,5 +1,5 @@
 import 'package:aula_dois/app/ds/components/%20cwb_buttons.dart';
-import 'package:aula_dois/app/ds/values/pages.dart';
+import 'package:aula_dois/app/values/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +16,7 @@ class SignUpPage extends StatelessWidget {
           child: CwbPrimaryButton(
               label: "login",
               onPressed: () {
-                Get.offAndToNamed(Routes.login);
+                Get.offAndToNamed(Routes.LOGIN);
               }),
         ));
   }

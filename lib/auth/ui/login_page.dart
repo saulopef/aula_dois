@@ -1,4 +1,3 @@
-import 'package:aula_dois/app/ds/values/pages.dart';
 import 'package:aula_dois/auth/controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +5,7 @@ import 'package:get/get.dart';
 import '../../app/ds/components/ cwb_buttons.dart';
 import '../../app/ds/components/cwb_inputs.dart';
 import '../../app/ds/values/cwb_spacing.dart';
+import '../../app/values/pages.dart';
 
 class LoginPage extends GetView<LoginController> {
   const LoginPage({Key? key}) : super(key: key);
@@ -126,7 +126,7 @@ class LoginPage extends GetView<LoginController> {
                         CwbPrimaryButton(
                           label: 'Entrar',
                           onPressed: () {
-                            Get.offAndToNamed(Routes.cadastro);
+                            Get.offAndToNamed(Routes.CADASTRO);
                           },
                         ),
                         const Expanded(child: SizedBox()),
