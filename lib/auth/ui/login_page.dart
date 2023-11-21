@@ -7,12 +7,11 @@ import '../../app/ds/components/cwb_inputs.dart';
 import '../../app/ds/values/cwb_spacing.dart';
 import '../../app/values/pages.dart';
 
-class LoginPage extends GetView<LoginController> {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginPage extends GetResponsiveView<LoginController> {
+  LoginPage({super.key});
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget builder() {
     final formKey = GlobalKey<FormState>();
     return Scaffold(
       body: Stack(
@@ -21,7 +20,7 @@ class LoginPage extends GetView<LoginController> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height / 3,
+                height: Get.size.height / 3,
                 child: Image.asset(
                   'assets/png/header.png',
                   fit: BoxFit.cover,
@@ -78,9 +77,15 @@ class LoginPage extends GetView<LoginController> {
             ],
           ),
           Center(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              width: double.infinity,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: screen.height * 0.5 < 400
+                    ? 401
+                    : screen.height * 0.5 > 500
+                        ? 500
+                        : screen.height * 0.5,
+                minHeight: 400,
+              ),
               child: Card(
                 margin: const EdgeInsets.symmetric(horizontal: 30),
                 child: Form(
@@ -88,7 +93,6 @@ class LoginPage extends GetView<LoginController> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Image.asset('assets/png/logo.png'),
                         const CwbSpacing(spacing: 36),

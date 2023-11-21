@@ -14,9 +14,10 @@ class SplashController extends GetxController {
   }
 
   @override
-  void onReady() {
+  void onReady() async {
     super.onReady();
-    debugPrint('SplashController onReady');
+    await verifyUser();
+    goToNextPage();
   }
 
   @override
@@ -35,5 +36,10 @@ class SplashController extends GetxController {
 
   void login() {
     _isLogged.toggle();
+  }
+
+  Future<bool> verifyUser() async {
+    await Future.delayed(const Duration(seconds: 4));
+    return true;
   }
 }

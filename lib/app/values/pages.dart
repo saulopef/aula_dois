@@ -16,7 +16,7 @@ abstract class Pages {
     ),
     GetPage(
       name: Routes.LOGIN,
-      page: () => const LoginPage(),
+      page: () => LoginPage(),
       binding: LoginBinding(),
     ),
     GetPage(
